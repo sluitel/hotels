@@ -41,6 +41,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+	//Number of hotels
     return self.hotels.count;
 }
 
@@ -58,6 +59,7 @@
 	NSDictionary *hotelDic = [self.hotels objectAtIndex:indexPath.row];
 	NSURL *thumbnailURL = [NSURL URLWithString:[hotelDic objectForKey:@"thumbnail"]];
 	
+	//Set hotel name and image
 	cell.hotelName.text = [hotelDic objectForKey:@"name"];
 	[cell.thumbnailView sd_setImageWithURL:thumbnailURL placeholderImage:nil options:SDWebImageContinueInBackground];
     return cell;

@@ -5,28 +5,20 @@
 //  Created by Subash Luitel on 11/20/14.
 //  Copyright (c) 2014 Luitel. All rights reserved.
 //
+//	We need a custom subclass of MKMapView in order to allow touches on UIControls in custom callout view.
 
 #import "MapViewController.h"
-#import "WYPopoverController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
 
-@interface MapViewController ()
+#pragma mark - Custom Map View Interface
 
-@end
-
-// We need a custom subclass of MKMapView in order to allow touches on UIControls in our custom callout view.
 @interface CustomMapView : MKMapView
 @property (nonatomic, strong) SMCalloutView *calloutView;
 @end
 
 
-//
-// Custom Map View
-//
-// We need to subclass MKMapView in order to present an SMCalloutView that contains interactive
-// elements.
-//
+#pragma mark - MKMapView(UIGestureRecognizer)
 
 @interface MKMapView (UIGestureRecognizer)
 
@@ -35,10 +27,11 @@
 
 @end
 
+#pragma mark - Custom Map View Implementation
+
 @implementation CustomMapView
 
-// override UIGestureRecognizer's delegate method so we can prevent MKMapView's recognizer from firing
-// when we interact with UIControl subclasses inside our callout view.
+// Override UIGesture Delegate Methods
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
 	if ([touch.view isKindOfClass:[UIControl class]])
 		return NO;
@@ -46,34 +39,33 @@
 		return [super gestureRecognizer:gestureRecognizer shouldReceiveTouch:touch];
 }
 
-// Allow touches to be sent to our calloutview.
-// See this for some discussion of why we need to override this: https://github.com/nfarina/calloutview/pull/9
+// Allow touches to be sent to calloutview.
+// some discussion of why we need to override this: https://github.com/nfarina/calloutview/pull/9
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
 	
-	UIView *calloutMaybe = [self.calloutView hitTest:[self.calloutView convertPoint:point fromView:self] withEvent:event];
-	if (calloutMaybe) return calloutMaybe;
+	UIView *customCalloutView = [self.calloutView hitTest:[self.calloutView convertPoint:point fromView:self] withEvent:event];
+	if (customCalloutView) return customCalloutView;
 	
 	return [super hitTest:point withEvent:event];
 }
 
 @end
 
-
+#pragma mark - MapViewController Implementation
 
 @implementation MapViewController
-
 
 #pragma mark - View Hierarchy
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
+	calloutCount = 0;
 	
-	
+	// Create a custom map view
 	self.mapView = [[CustomMapView alloc] initWithFrame:self.view.bounds];
 	self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	self.mapView.delegate = self;
-	//[self.mapView addAnnotation:self.annotation];
 	[self.view addSubview:self.mapView];
 	
 	// Set the map area to show city of chicago
@@ -82,24 +74,21 @@
 	
 	[self addAnnotations];
 	
-	// create our custom callout view
+	// create custom callout view
 	self.calloutView = [SMCalloutView platformCalloutView];
 	self.calloutView.delegate = self;
 	[self.view addSubview:self.calloutView];
-
 	
-	// tell our custom map view about the callout so it can send it touches
+	// tell custom map view about the callout so it can send it touches
 	self.mapView.calloutView = self.calloutView;
 }
 
 
-//
-// MKMapView delegate methods
-//
+#pragma mark - MKMapView Delegate
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
 	
-	// create a proper annotation view, be lazy and don't use the reuse identifier
+	// create a proper annotation view
 	MKPinAnnotationView *view = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"PinAnnotationID"];
 	
 	view.canShowCallout = NO;
@@ -113,27 +102,19 @@
 		
 		HotelAnnotation *annotation = (HotelAnnotation *)annotationView.annotation;
 		
-		// apply the MKAnnotationView's basic properties
-		self.calloutView.title = annotation.hotelName;
-		self.calloutView.subtitle = annotationView.annotation.subtitle;
-		
-		// Apply the MKAnnotationView's desired calloutOffset (from the top-middle of the view)
-		self.calloutView.calloutOffset = annotationView.calloutOffset;
-		
 		UIImageView *hotelImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.calloutView.frame.size.height, self.calloutView.frame.size.height)];
+		[hotelImageView setBackgroundColor:[UIColor grayColor]];
 		[hotelImageView sd_setImageWithURL:annotation.thumbnailURL];
 		self.calloutView.leftAccessoryView = hotelImageView;
 		
-//		// create a disclosure button for comparison
-//		UIButton *disclosure = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-//		[disclosure addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(disclosureTapped)]];
-//		self.calloutView.rightAccessoryView = disclosure;
+		self.calloutView.title = annotation.hotelName;
+		self.calloutView.calloutOffset = annotationView.calloutOffset;
 		
-		// iOS 7 only: Apply our view controller's edge insets to the allowable area in which the callout can be displayed.
+		
+		// iOS 7 only: Apply view controller's edge insets to the allowable area in which the callout can be displayed.
 		if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1)
 			self.calloutView.constrainedInsets = UIEdgeInsetsMake(self.topLayoutGuide.length, 0, self.bottomLayoutGuide.length, 0);
 		
-		// This does all the magic.
 		[self.calloutView presentCalloutFromRect:annotationView.bounds inView:annotationView constrainedToView:self.view animated:YES];
 	}
 }
@@ -142,6 +123,8 @@
 	
 	[self.calloutView dismissCalloutAnimated:YES];
 }
+
+#pragma mark - SMCalloutView Delegate
 
 - (NSTimeInterval)calloutView:(SMCalloutView *)calloutView delayForRepositionWithSize:(CGSize)offset {
 	
@@ -168,35 +151,16 @@
 	return kSMCalloutViewRepositionDelayForUIScrollView;
 }
 
-- (void)disclosureTapped {
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Tap!" message:@"You tapped the disclosure button."
-												   delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK",nil];
-	[alert show];
-}
-
-
-
-
-
-
-
-
-
-
-
 #pragma mark - Memory Warning
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
+#pragma mark - Annotations
+
 // Create placemark for hotels and show it on the map
 -(void)addAnnotations {
-	
-//	self.annotation = [MKPointAnnotation new];
-//	self.annotation.coordinate = (CLLocationCoordinate2D){28.388154, -80.604200};
-//	self.annotation.title = @"Cape Canaveral";
-//	self.annotation.subtitle = @"Launchpad";
 	NSMutableArray *annotations = [NSMutableArray array];
 	
 	for (int i = 0; i<self.hotels.count; i++) {
@@ -207,7 +171,6 @@
 		// Add an annotation
 		HotelAnnotation *point = [HotelAnnotation new];
 		point.coordinate = CLLocationCoordinate2DMake(latitude, longitude);
-		point.title = @"Cape Cankljdgklajg";
 		point.hotelName = [dictionary objectForKeyedSubscript:@"name"];
 		point.thumbnailURL = [NSURL URLWithString:[dictionary objectForKeyedSubscript:@"thumbnail"]];
 		[annotations addObject:point];

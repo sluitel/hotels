@@ -102,7 +102,7 @@
         <scene sceneID="o2g-ay-jOH">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aqd-Ut-tuh" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="List" id="Pqv-yA-O1M"/>
+                    <tabBarItem key="tabBarItem" title="List" image="first" id="Pqv-yA-O1M"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kAe-SS-BzL">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -119,6 +119,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
     </resources>
 </document>

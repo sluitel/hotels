@@ -37,8 +37,8 @@
 /* Begin PBXFileReference section */
 		782BD5F84B0FEA3CB60DEDF9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A48D63D599DA361F5C13147D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		BBB7D6AB1A22652F00F7A3B8 /* SMCalloutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCalloutView.h; sourceTree = "<group>"; };
-		BBB7D6AC1A22652F00F7A3B8 /* SMCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCalloutView.m; sourceTree = "<group>"; };
+		BBB7D6AB1A22652F00F7A3B8 /* SMCalloutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMCalloutView.h; path = Hotels/SMCalloutView.h; sourceTree = "<group>"; };
+		BBB7D6AC1A22652F00F7A3B8 /* SMCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMCalloutView.m; path = Hotels/SMCalloutView.m; sourceTree = "<group>"; };
 		BBB7D6AE1A2269B300F7A3B8 /* HotelAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelAnnotation.h; sourceTree = "<group>"; };
 		BBB7D6AF1A2269B300F7A3B8 /* HotelAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelAnnotation.m; sourceTree = "<group>"; };
 		BBED19561A1E5FC7009D6F8B /* Hotels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hotels.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,12 +95,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BBB7D6B11A226F2F00F7A3B8 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				BBB7D6AB1A22652F00F7A3B8 /* SMCalloutView.h */,
+				BBB7D6AC1A22652F00F7A3B8 /* SMCalloutView.m */,
+			);
+			name = External;
+			sourceTree = "<group>";
+		};
 		BBED194D1A1E5FC7009D6F8B = {
 			isa = PBXGroup;
 			children = (
 				BBED19581A1E5FC7009D6F8B /* Hotels */,
 				BBED19751A1E5FC7009D6F8B /* HotelsTests */,
 				BBED19571A1E5FC7009D6F8B /* Products */,
+				BBB7D6B11A226F2F00F7A3B8 /* External */,
 				C86B08F1196168C4F714F23A /* Pods */,
 				776721649766D6302E3CDFC5 /* Frameworks */,
 			);
@@ -130,8 +140,6 @@
 				BBED19871A1E62BA009D6F8B /* HotelCell.h */,
 				BBED19881A1E62BA009D6F8B /* HotelCell.m */,
 				BBED198A1A1E70F6009D6F8B /* hotels.json */,
-				BBB7D6AB1A22652F00F7A3B8 /* SMCalloutView.h */,
-				BBB7D6AC1A22652F00F7A3B8 /* SMCalloutView.m */,
 				BBED19691A1E5FC7009D6F8B /* Images.xcassets */,
 				BBED196B1A1E5FC7009D6F8B /* LaunchScreen.xib */,
 				BBED19591A1E5FC7009D6F8B /* Supporting Files */,

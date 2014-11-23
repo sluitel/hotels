@@ -14,7 +14,9 @@
 #import "HotelAnnotation.h"
 
 
-@interface MapViewController : UIViewController <MKMapViewDelegate, SMCalloutViewDelegate>
+@interface MapViewController : UIViewController <MKMapViewDelegate, SMCalloutViewDelegate> {
+	int calloutCount;
+}
 
 @property (nonatomic, strong) CustomMapView *mapView;
 @property (nonatomic, strong) SMCalloutView *calloutView;
