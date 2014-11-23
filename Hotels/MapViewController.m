@@ -100,18 +100,21 @@
 	
 	if (mapView == self.mapView) {
 		
-		HotelAnnotation *annotation = (HotelAnnotation *)annotationView.annotation;
 		
-		UIImageView *hotelImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.calloutView.frame.size.height, self.calloutView.frame.size.height)];
+		HotelAnnotation *annotation = (HotelAnnotation *)annotationView.annotation;
+		NSLog(@"%@", annotation.thumbnailURL);
+		
+		UIImageView *hotelImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"first"]];
+		self.calloutView.leftAccessoryView = hotelImageView;
+		
 		[hotelImageView setBackgroundColor:[UIColor grayColor]];
 		[hotelImageView sd_setImageWithURL:annotation.thumbnailURL];
-		self.calloutView.leftAccessoryView = hotelImageView;
 		
 		self.calloutView.title = annotation.hotelName;
 		self.calloutView.calloutOffset = annotationView.calloutOffset;
 		
 		
-		// iOS 7 only: Apply view controller's edge insets to the allowable area in which the callout can be displayed.
+		// Apply view controller's edge insets to the allowable area in which the callout can be displayed.
 		if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1)
 			self.calloutView.constrainedInsets = UIEdgeInsetsMake(self.topLayoutGuide.length, 0, self.bottomLayoutGuide.length, 0);
 		
@@ -128,26 +131,19 @@
 
 - (NSTimeInterval)calloutView:(SMCalloutView *)calloutView delayForRepositionWithSize:(CGSize)offset {
 	
-	// When the callout is being asked to present in a way where it or its target will be partially offscreen, it asks us
-	// if we'd like to reposition our surface first so the callout is completely visible. Here we scroll the map into view,
-	// but it takes some math because we have to deal in lon/lat instead of the given offset in pixels.
-	
 	CLLocationCoordinate2D coordinate = self.mapView.centerCoordinate;
-	
-	// where's the center coordinate in terms of our view?
 	CGPoint center = [self.mapView convertCoordinate:coordinate toPointToView:self.view];
 	
-	// move it by the requested offset
+	// move center by the requested offset
 	center.x -= offset.width;
 	center.y -= offset.height;
 	
-	// and translate it back into map coordinates
 	coordinate = [self.mapView convertPoint:center toCoordinateFromView:self.view];
 	
 	// move the map!
 	[self.mapView setCenterCoordinate:coordinate animated:YES];
 	
-	// tell the callout to wait for a while while we scroll (we assume the scroll delay for MKMapView matches UIScrollView)
+	// tell the callout to wait for a while while scroll
 	return kSMCalloutViewRepositionDelayForUIScrollView;
 }
 
