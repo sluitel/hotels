@@ -100,18 +100,9 @@
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
 	
 	// create a proper annotation view, be lazy and don't use the reuse identifier
-	MKPinAnnotationView *view = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@""];
+	MKPinAnnotationView *view = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"PinAnnotationID"];
 	
-	// create a disclosure button for map kit
-	UIButton *disclosure = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-	[disclosure addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(disclosureTapped)]];
-	view.rightCalloutAccessoryView = disclosure;
-	
-	// if we're using SMCalloutView, we don't want MKMapView to create its own callout!
-	//if (annotation == self.annotation)
-		view.canShowCallout = NO;
-	//else
-		//view.canShowCallout = YES;
+	view.canShowCallout = NO;
 	
 	return view;
 }
@@ -129,10 +120,14 @@
 		// Apply the MKAnnotationView's desired calloutOffset (from the top-middle of the view)
 		self.calloutView.calloutOffset = annotationView.calloutOffset;
 		
-		// create a disclosure button for comparison
-		UIButton *disclosure = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-		[disclosure addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(disclosureTapped)]];
-		self.calloutView.rightAccessoryView = disclosure;
+		UIImageView *hotelImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.calloutView.frame.size.height, self.calloutView.frame.size.height)];
+		[hotelImageView sd_setImageWithURL:annotation.thumbnailURL];
+		self.calloutView.leftAccessoryView = hotelImageView;
+		
+//		// create a disclosure button for comparison
+//		UIButton *disclosure = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+//		[disclosure addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(disclosureTapped)]];
+//		self.calloutView.rightAccessoryView = disclosure;
 		
 		// iOS 7 only: Apply our view controller's edge insets to the allowable area in which the callout can be displayed.
 		if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1)

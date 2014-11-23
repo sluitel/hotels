@@ -99,6 +99,7 @@ NSTimeInterval const kSMCalloutViewRepositionDelayForUIScrollView = 1.0/3.0;
             self.titleLabel.backgroundColor = [UIColor clearColor];
             self.titleLabel.font = [UIFont systemFontOfSize:17];
             self.titleLabel.textColor = [UIColor blackColor];
+			[self.titleLabel setAdjustsFontSizeToFitWidth:YES];
         }
         return self.titleLabel;
     }
