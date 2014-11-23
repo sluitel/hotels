@@ -15,13 +15,13 @@
 // Callout View.
 //
 
-#define CALLOUT_DEFAULT_CONTAINER_HEIGHT 44 // height of just the main portion without arrow
-#define CALLOUT_SUB_DEFAULT_CONTAINER_HEIGHT 52 // height of just the main portion without arrow (when subtitle is present)
+#define CALLOUT_DEFAULT_CONTAINER_HEIGHT 54 // height of just the main portion without arrow
+#define CALLOUT_SUB_DEFAULT_CONTAINER_HEIGHT 62 // height of just the main portion without arrow (when subtitle is present)
 #define CALLOUT_MIN_WIDTH 61 // minimum width of system callout
 #define TITLE_HMARGIN 12 // the title/subtitle view's normal horizontal margin from the edges of our callout view or from the accessories
-#define TITLE_TOP 11 // the top of the title view when no subtitle is present
+#define TITLE_TOP 5 // the top of the title view when no subtitle is present
 #define TITLE_SUB_TOP 4 // the top of the title view when a subtitle IS present
-#define TITLE_HEIGHT 21 // title height, fixed
+#define TITLE_HEIGHT 44 // title height, fixed
 #define SUBTITLE_TOP 28 // the top of the subtitle, when present
 #define SUBTITLE_HEIGHT 15 // subtitle height, fixed
 #define BETWEEN_ACCESSORIES_MARGIN 7 // margin between accessories when no title/subtitle is present
@@ -99,6 +99,7 @@ NSTimeInterval const kSMCalloutViewRepositionDelayForUIScrollView = 1.0/3.0;
             self.titleLabel.backgroundColor = [UIColor clearColor];
             self.titleLabel.font = [UIFont systemFontOfSize:17];
             self.titleLabel.textColor = [UIColor blackColor];
+			self.titleLabel.numberOfLines = 2;
 			[self.titleLabel setAdjustsFontSizeToFitWidth:YES];
         }
         return self.titleLabel;
