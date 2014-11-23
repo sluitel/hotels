@@ -11,6 +11,7 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import "SMCalloutView.h"
+#import "HotelAnnotation.h"
 
 
 @interface MapViewController : UIViewController <MKMapViewDelegate, SMCalloutViewDelegate>

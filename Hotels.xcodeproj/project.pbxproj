@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		788DD4E4A0B4F77A14724F84 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 782BD5F84B0FEA3CB60DEDF9 /* libPods.a */; };
 		BBB7D6AD1A22652F00F7A3B8 /* SMCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = BBB7D6AC1A22652F00F7A3B8 /* SMCalloutView.m */; };
+		BBB7D6B01A2269B300F7A3B8 /* HotelAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = BBB7D6AF1A2269B300F7A3B8 /* HotelAnnotation.m */; };
 		BBED195C1A1E5FC7009D6F8B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BBED195B1A1E5FC7009D6F8B /* main.m */; };
 		BBED195F1A1E5FC7009D6F8B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BBED195E1A1E5FC7009D6F8B /* AppDelegate.m */; };
 		BBED19681A1E5FC7009D6F8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBED19661A1E5FC7009D6F8B /* Main.storyboard */; };
@@ -20,7 +21,6 @@
 		BBED198B1A1E70F6009D6F8B /* hotels.json in Resources */ = {isa = PBXBuildFile; fileRef = BBED198A1A1E70F6009D6F8B /* hotels.json */; };
 		BBED198D1A1ECA2B009D6F8B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBED198C1A1ECA2B009D6F8B /* MapKit.framework */; };
 		BBED19901A1ECE14009D6F8B /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBED198F1A1ECE14009D6F8B /* MapViewController.m */; };
-		BBED19931A1ED373009D6F8B /* CustomAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = BBED19921A1ED373009D6F8B /* CustomAnnotation.m */; };
 		BBED19951A1ED709009D6F8B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBED19941A1ED709009D6F8B /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +39,8 @@
 		A48D63D599DA361F5C13147D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		BBB7D6AB1A22652F00F7A3B8 /* SMCalloutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCalloutView.h; sourceTree = "<group>"; };
 		BBB7D6AC1A22652F00F7A3B8 /* SMCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCalloutView.m; sourceTree = "<group>"; };
+		BBB7D6AE1A2269B300F7A3B8 /* HotelAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelAnnotation.h; sourceTree = "<group>"; };
+		BBB7D6AF1A2269B300F7A3B8 /* HotelAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelAnnotation.m; sourceTree = "<group>"; };
 		BBED19561A1E5FC7009D6F8B /* Hotels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hotels.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBED195A1A1E5FC7009D6F8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BBED195B1A1E5FC7009D6F8B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -58,8 +60,6 @@
 		BBED198C1A1ECA2B009D6F8B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		BBED198E1A1ECE14009D6F8B /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		BBED198F1A1ECE14009D6F8B /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
-		BBED19911A1ED373009D6F8B /* CustomAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotation.h; sourceTree = "<group>"; };
-		BBED19921A1ED373009D6F8B /* CustomAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotation.m; sourceTree = "<group>"; };
 		BBED19941A1ED709009D6F8B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		DAFFB3AF6593E0016022A013 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,8 +125,8 @@
 				BBED198E1A1ECE14009D6F8B /* MapViewController.h */,
 				BBED198F1A1ECE14009D6F8B /* MapViewController.m */,
 				BBED19661A1E5FC7009D6F8B /* Main.storyboard */,
-				BBED19911A1ED373009D6F8B /* CustomAnnotation.h */,
-				BBED19921A1ED373009D6F8B /* CustomAnnotation.m */,
+				BBB7D6AE1A2269B300F7A3B8 /* HotelAnnotation.h */,
+				BBB7D6AF1A2269B300F7A3B8 /* HotelAnnotation.m */,
 				BBED19871A1E62BA009D6F8B /* HotelCell.h */,
 				BBED19881A1E62BA009D6F8B /* HotelCell.m */,
 				BBED198A1A1E70F6009D6F8B /* hotels.json */,
@@ -314,9 +314,9 @@
 				BBED19891A1E62BA009D6F8B /* HotelCell.m in Sources */,
 				BBED195F1A1E5FC7009D6F8B /* AppDelegate.m in Sources */,
 				BBED19901A1ECE14009D6F8B /* MapViewController.m in Sources */,
-				BBED19931A1ED373009D6F8B /* CustomAnnotation.m in Sources */,
 				BBED19841A1E6082009D6F8B /* TableViewController.m in Sources */,
 				BBED195C1A1E5FC7009D6F8B /* main.m in Sources */,
+				BBB7D6B01A2269B300F7A3B8 /* HotelAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

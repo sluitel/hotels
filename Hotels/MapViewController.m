@@ -7,7 +7,6 @@
 //
 
 #import "MapViewController.h"
-#import "CustomAnnotation.h"
 #import "WYPopoverController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
@@ -69,22 +68,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
-	self.annotation = [MKPointAnnotation new];
-	self.annotation.coordinate = (CLLocationCoordinate2D){28.388154, -80.604200};
-	self.annotation.title = @"Cape Canaveral";
-	self.annotation.subtitle = @"Launchpad";
+	
 	
 	self.mapView = [[CustomMapView alloc] initWithFrame:self.view.bounds];
 	self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	self.mapView.delegate = self;
-	[self.mapView addAnnotation:self.annotation];
+	//[self.mapView addAnnotation:self.annotation];
 	[self.view addSubview:self.mapView];
 	
 	// Set the map area to show city of chicago
 	MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(41.894500000000001, -87.624300000000005), 1000, 1000);
 	[self.mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
 	
-	//[self addAnnotations];
+	[self addAnnotations];
 	
 	// create our custom callout view
 	self.calloutView = [SMCalloutView platformCalloutView];
@@ -112,10 +108,10 @@
 	view.rightCalloutAccessoryView = disclosure;
 	
 	// if we're using SMCalloutView, we don't want MKMapView to create its own callout!
-	if (annotation == self.annotation)
+	//if (annotation == self.annotation)
 		view.canShowCallout = NO;
-	else
-		view.canShowCallout = YES;
+	//else
+		//view.canShowCallout = YES;
 	
 	return view;
 }
@@ -124,8 +120,10 @@
 	
 	if (mapView == self.mapView) {
 		
+		HotelAnnotation *annotation = (HotelAnnotation *)annotationView.annotation;
+		
 		// apply the MKAnnotationView's basic properties
-		self.calloutView.title = annotationView.annotation.title;
+		self.calloutView.title = annotation.hotelName;
 		self.calloutView.subtitle = annotationView.annotation.subtitle;
 		
 		// Apply the MKAnnotationView's desired calloutOffset (from the top-middle of the view)
@@ -199,6 +197,11 @@
 
 // Create placemark for hotels and show it on the map
 -(void)addAnnotations {
+	
+//	self.annotation = [MKPointAnnotation new];
+//	self.annotation.coordinate = (CLLocationCoordinate2D){28.388154, -80.604200};
+//	self.annotation.title = @"Cape Canaveral";
+//	self.annotation.subtitle = @"Launchpad";
 	NSMutableArray *annotations = [NSMutableArray array];
 	
 	for (int i = 0; i<self.hotels.count; i++) {
@@ -207,9 +210,11 @@
 		double longitude = [[dictionary objectForKey:@"longitude"] doubleValue];
 		
 		// Add an annotation
-		CustomAnnotation *point = [[CustomAnnotation alloc] initWithLocation:CLLocationCoordinate2DMake(latitude, longitude)];
-		point.imageURL = [dictionary objectForKey:@"thumbnail"];
-		
+		HotelAnnotation *point = [HotelAnnotation new];
+		point.coordinate = CLLocationCoordinate2DMake(latitude, longitude);
+		point.title = @"Cape Cankljdgklajg";
+		point.hotelName = [dictionary objectForKeyedSubscript:@"name"];
+		point.thumbnailURL = [NSURL URLWithString:[dictionary objectForKeyedSubscript:@"thumbnail"]];
 		[annotations addObject:point];
 	}
 	[self.mapView addAnnotations:annotations];
