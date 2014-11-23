@@ -10,10 +10,18 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
-#import <SDWebImage/UIImageView+WebCache.h>
 #import "SMCalloutView.h"
 
+
 @interface MapViewController : UIViewController <MKMapViewDelegate, SMCalloutViewDelegate>
+
+@property (nonatomic, strong) CustomMapView *mapView;
+@property (nonatomic, strong) SMCalloutView *calloutView;
+@property (nonatomic, strong) MKPointAnnotation *annotation;
+
+@property (nonatomic, strong) NSArray *hotels;
+
+
 
 
 @end

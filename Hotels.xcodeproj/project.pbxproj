@@ -8,9 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		788DD4E4A0B4F77A14724F84 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 782BD5F84B0FEA3CB60DEDF9 /* libPods.a */; };
-		BB2CF9381A212DBD00257246 /* PopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB2CF9371A212DBD00257246 /* PopupViewController.m */; };
-		BB8074A01A21931D004922D2 /* SMCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB80749F1A21931D004922D2 /* SMCalloutView.m */; };
-		BB8074A61A21958A004922D2 /* HotelMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8074A51A21958A004922D2 /* HotelMapView.m */; };
+		BBB7D6AD1A22652F00F7A3B8 /* SMCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = BBB7D6AC1A22652F00F7A3B8 /* SMCalloutView.m */; };
 		BBED195C1A1E5FC7009D6F8B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BBED195B1A1E5FC7009D6F8B /* main.m */; };
 		BBED195F1A1E5FC7009D6F8B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BBED195E1A1E5FC7009D6F8B /* AppDelegate.m */; };
 		BBED19681A1E5FC7009D6F8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBED19661A1E5FC7009D6F8B /* Main.storyboard */; };
@@ -39,12 +37,8 @@
 /* Begin PBXFileReference section */
 		782BD5F84B0FEA3CB60DEDF9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A48D63D599DA361F5C13147D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		BB2CF9361A212DBD00257246 /* PopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupViewController.h; sourceTree = "<group>"; };
-		BB2CF9371A212DBD00257246 /* PopupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupViewController.m; sourceTree = "<group>"; };
-		BB80749E1A21931D004922D2 /* SMCalloutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCalloutView.h; sourceTree = "<group>"; };
-		BB80749F1A21931D004922D2 /* SMCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCalloutView.m; sourceTree = "<group>"; };
-		BB8074A41A21958A004922D2 /* HotelMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelMapView.h; sourceTree = "<group>"; };
-		BB8074A51A21958A004922D2 /* HotelMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelMapView.m; sourceTree = "<group>"; };
+		BBB7D6AB1A22652F00F7A3B8 /* SMCalloutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCalloutView.h; sourceTree = "<group>"; };
+		BBB7D6AC1A22652F00F7A3B8 /* SMCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCalloutView.m; sourceTree = "<group>"; };
 		BBED19561A1E5FC7009D6F8B /* Hotels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hotels.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBED195A1A1E5FC7009D6F8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BBED195B1A1E5FC7009D6F8B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -124,8 +118,6 @@
 		BBED19581A1E5FC7009D6F8B /* Hotels */ = {
 			isa = PBXGroup;
 			children = (
-				BB8074A41A21958A004922D2 /* HotelMapView.h */,
-				BB8074A51A21958A004922D2 /* HotelMapView.m */,
 				BBED195D1A1E5FC7009D6F8B /* AppDelegate.h */,
 				BBED195E1A1E5FC7009D6F8B /* AppDelegate.m */,
 				BBED19821A1E6082009D6F8B /* TableViewController.h */,
@@ -133,15 +125,13 @@
 				BBED198E1A1ECE14009D6F8B /* MapViewController.h */,
 				BBED198F1A1ECE14009D6F8B /* MapViewController.m */,
 				BBED19661A1E5FC7009D6F8B /* Main.storyboard */,
-				BB2CF9361A212DBD00257246 /* PopupViewController.h */,
-				BB2CF9371A212DBD00257246 /* PopupViewController.m */,
 				BBED19911A1ED373009D6F8B /* CustomAnnotation.h */,
 				BBED19921A1ED373009D6F8B /* CustomAnnotation.m */,
 				BBED19871A1E62BA009D6F8B /* HotelCell.h */,
 				BBED19881A1E62BA009D6F8B /* HotelCell.m */,
 				BBED198A1A1E70F6009D6F8B /* hotels.json */,
-				BB80749E1A21931D004922D2 /* SMCalloutView.h */,
-				BB80749F1A21931D004922D2 /* SMCalloutView.m */,
+				BBB7D6AB1A22652F00F7A3B8 /* SMCalloutView.h */,
+				BBB7D6AC1A22652F00F7A3B8 /* SMCalloutView.m */,
 				BBED19691A1E5FC7009D6F8B /* Images.xcassets */,
 				BBED196B1A1E5FC7009D6F8B /* LaunchScreen.xib */,
 				BBED19591A1E5FC7009D6F8B /* Supporting Files */,
@@ -320,14 +310,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBB7D6AD1A22652F00F7A3B8 /* SMCalloutView.m in Sources */,
 				BBED19891A1E62BA009D6F8B /* HotelCell.m in Sources */,
-				BB8074A01A21931D004922D2 /* SMCalloutView.m in Sources */,
 				BBED195F1A1E5FC7009D6F8B /* AppDelegate.m in Sources */,
 				BBED19901A1ECE14009D6F8B /* MapViewController.m in Sources */,
 				BBED19931A1ED373009D6F8B /* CustomAnnotation.m in Sources */,
 				BBED19841A1E6082009D6F8B /* TableViewController.m in Sources */,
-				BB8074A61A21958A004922D2 /* HotelMapView.m in Sources */,
-				BB2CF9381A212DBD00257246 /* PopupViewController.m in Sources */,
 				BBED195C1A1E5FC7009D6F8B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

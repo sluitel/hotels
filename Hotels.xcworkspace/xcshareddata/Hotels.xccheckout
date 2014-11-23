@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>5C5DBD52-CC5E-468A-9871-30E21BBEF16B</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Hotels</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>6A6FE40F360226F24B5BF0CA0187D5383F99ECA4</key>
+		<string>github.com:sluitel/hotels.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Hotels.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>6A6FE40F360226F24B5BF0CA0187D5383F99ECA4</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:sluitel/hotels.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>6A6FE40F360226F24B5BF0CA0187D5383F99ECA4</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>6A6FE40F360226F24B5BF0CA0187D5383F99ECA4</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Hotels</string>
+		</dict>
+	</array>
+</dict>
+</plist>

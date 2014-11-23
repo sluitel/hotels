@@ -60,39 +60,6 @@
             </objects>
             <point key="canvasLocation" x="1445" y="-289"/>
         </scene>
-        <!--Popup View Controller-->
-        <scene sceneID="BgH-AV-alc">
-            <objects>
-                <viewController storyboardIdentifier="PopUpViewControllerID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lVt-dB-52K" customClass="PopupViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Cbu-RD-zLM"/>
-                        <viewControllerLayoutGuide type="bottom" id="S9j-AJ-anz"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="y9X-67-GCz">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oOT-Fj-RpF">
-                                <rect key="frame" x="10" y="10" width="60" height="60"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SUu-gS-vl0">
-                                <rect key="frame" x="85" y="10" width="110" height="60"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <connections>
-                        <outlet property="hotelName" destination="SUu-gS-vl0" id="Wl4-Mu-UMB"/>
-                        <outlet property="imageView" destination="oOT-Fj-RpF" id="Biv-vL-38T"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tn3-m4-wtJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1445" y="358"/>
-        </scene>
         <!--Map-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
@@ -104,23 +71,9 @@
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SNV-8E-awd">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                            </mapView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="SNV-8E-awd" firstAttribute="top" secondItem="QS5-Rx-YEW" secondAttribute="topMargin" id="4hy-YE-4zo"/>
-                            <constraint firstItem="SNV-8E-awd" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="-16" id="VxZ-N3-LBf"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="SNV-8E-awd" secondAttribute="trailing" constant="-16" id="pSy-Qh-pLo"/>
-                            <constraint firstItem="SNV-8E-awd" firstAttribute="bottom" secondItem="QS5-Rx-YEW" secondAttribute="bottomMargin" id="tKl-Ih-oIz"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="second" id="cPa-gy-q4n"/>
-                    <connections>
-                        <outlet property="mapView" destination="SNV-8E-awd" id="gOa-67-iKn"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>

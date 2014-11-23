@@ -8,13 +8,15 @@
 
 #import <MapKit/MapKit.h>
 
-@interface CustomAnnotation : MKPlacemark <MKAnnotation>
+@interface CustomAnnotation : NSObject <MKAnnotation>
 
-@property (readonly, nonatomic) CLLocationCoordinate2D coordinate;
+@property (nonatomic) CLLocationCoordinate2D coordinate;
 @property (copy, nonatomic) NSString *hotelName;
 @property (copy, nonatomic) NSURL *imageURL;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *subtitle;
 
-//-(id)initWithHotelName:(NSString *)name location:(CLLocationCoordinate2D)location thumbnailURL:(NSURL *)URL;
-//-(MKAnnotationView *)annotationView;
+- (id)initWithLocation:(CLLocationCoordinate2D)coord;
+
 
 @end
